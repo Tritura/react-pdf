@@ -4,7 +4,7 @@
 
 Display PDFs in your React app as easily as if they were images.
 
-Forked from: [https://github.com/wojtekmaj/react-pdf](wojtekmaj/react-pdf)
+Forked from: [wojtekmaj/react-pdf](https://github.com/wojtekmaj/react-pdf)
 
 ## Lost?
 
