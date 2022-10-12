@@ -4,6 +4,8 @@
 
 Display PDFs in your React app as easily as if they were images.
 
+Forked from: [https://github.com/wojtekmaj/react-pdf](wojtekmaj/react-pdf)
+
 ## Lost?
 
 This package is used to _display_ existing PDFs. If you wish to _create_ PDFs using React, you may be looking for [@react-pdf/renderer](https://github.com/diegomura/react-pdf).
