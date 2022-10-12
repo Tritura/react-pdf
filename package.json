@@ -1,6 +1,6 @@
 {
-  "name": "react-pdf",
-  "version": "6.0.0-beta.4",
+  "name": "@tritura/react-pdf",
+  "version": "6.0.0-beta.4.1",
   "description": "Display PDFs in your React app as easily as if they were images.",
   "main": "dist/cjs/entry.js",
   "module": "dist/esm/entry.js",
@@ -24,10 +24,7 @@
     "pdf-viewer",
     "react"
   ],
-  "author": {
-    "name": "Wojciech Maj",
-    "email": "kontakt@wojtekmaj.pl"
-  },
+  "author": "Wojciech Maj <kontakt@wojtekmaj.pl>",
   "license": "MIT",
   "dependencies": {
     "@babel/runtime": "^7.0.0",
@@ -80,8 +77,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/wojtekmaj/react-pdf.git"
+    "url": "git+https://github.com/Tritura/react-pdf.git"
   },
-  "funding": "https://github.com/wojtekmaj/react-pdf?sponsor=1",
-  "packageManager": "yarn@3.1.0"
+  "packageManager": "yarn@3.1.0",
+  "bugs": {
+    "url": "https://github.com/Tritura/react-pdf/issues"
+  },
+  "homepage": "https://github.com/wojtekmaj/react-pdf#readme",
+  "directories": {
+    "test": "test"
+  }
 }
