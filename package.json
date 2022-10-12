@@ -83,7 +83,7 @@
   "bugs": {
     "url": "https://github.com/Tritura/react-pdf/issues"
   },
-  "homepage": "https://github.com/wojtekmaj/react-pdf#readme",
+  "homepage": "https://github.com/Tritura/react-pdf#readme",
   "directories": {
     "test": "test"
   }
