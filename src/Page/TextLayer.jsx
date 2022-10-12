@@ -127,9 +127,11 @@ export class TextLayerInternal extends PureComponent {
     // If another rendering is in progress, let's cancel it
     cancelRunningTask(this.runningTask);
 
+    const textDivs = [];
     const parameters = {
       container: this.layerElement.current,
       textContent,
+      textDivs,
       viewport,
     };
 
@@ -142,7 +144,7 @@ export class TextLayerInternal extends PureComponent {
     cancellable.promise
       .then(() => {
         if (customTextRenderer) {
-          Array.from(this.layerElement.current.children).forEach((element, elementIndex) => {
+          textDivs.forEach((element, elementIndex) => {
             const reactContent = customTextRenderer({
               itemIndex: elementIndex,
               ...textContent.items[elementIndex],

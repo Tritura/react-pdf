@@ -150,9 +150,11 @@ var TextLayerInternal = /*#__PURE__*/function (_PureComponent) {
 
       // If another rendering is in progress, let's cancel it
       (0, _utils.cancelRunningTask)(this.runningTask);
+      var textDivs = [];
       var parameters = {
         container: this.layerElement.current,
         textContent: textContent,
+        textDivs: textDivs,
         viewport: viewport
       };
       this.layerElement.current.innerHTML = '';
@@ -161,7 +163,7 @@ var TextLayerInternal = /*#__PURE__*/function (_PureComponent) {
       this.runningTask = cancellable;
       cancellable.promise.then(function () {
         if (customTextRenderer) {
-          Array.from(_this2.layerElement.current.children).forEach(function (element, elementIndex) {
+          textDivs.forEach(function (element, elementIndex) {
             var reactContent = customTextRenderer(_objectSpread({
               itemIndex: elementIndex
             }, textContent.items[elementIndex]));
