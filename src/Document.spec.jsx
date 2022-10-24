@@ -26,6 +26,12 @@ function Child(props) {
   );
 }
 
+function waitForAsync() {
+  return new Promise((resolve) => {
+    setTimeout(resolve, 0);
+  });
+}
+
 describe('Document', () => {
   // Object with basic loaded PDF information that shall match after successful loading
   const desiredLoadedPdf = {};
@@ -260,6 +266,8 @@ describe('Document', () => {
 
       await onLoadErrorPromise;
 
+      await waitForAsync();
+
       const error = container.querySelector('.react-pdf__message');
 
       expect(error).toBeInTheDocument();
@@ -268,7 +276,7 @@ describe('Document', () => {
       restoreConsole();
     });
 
-    it('renders custom error message when failed to load a document', async () => {
+    it('renders custom error message when failed to load a document and error prop is given', async () => {
       const { func: onLoadError, promise: onLoadErrorPromise } = makeAsyncCallback();
       const failingPdf = 'data:application/pdf;base64,abcdef';
 
@@ -281,6 +289,32 @@ describe('Document', () => {
       expect.assertions(2);
 
       await onLoadErrorPromise;
+
+      await waitForAsync();
+
+      const error = container.querySelector('.react-pdf__message');
+
+      expect(error).toBeInTheDocument();
+      expect(error).toHaveTextContent('Error');
+
+      restoreConsole();
+    });
+
+    it('renders custom error message when failed to load a document and error prop is given as a function', async () => {
+      const { func: onLoadError, promise: onLoadErrorPromise } = makeAsyncCallback();
+      const failingPdf = 'data:application/pdf;base64,abcdef';
+
+      muteConsole();
+
+      const { container } = render(
+        <Document error="Error" file={failingPdf} onLoadError={onLoadError} />,
+      );
+
+      expect.assertions(2);
+
+      await onLoadErrorPromise;
+
+      await waitForAsync();
 
       const error = container.querySelector('.react-pdf__message');
 
