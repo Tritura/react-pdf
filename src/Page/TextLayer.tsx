@@ -3,7 +3,6 @@ import makeCancellable from 'make-cancellable-promise';
 import invariant from 'tiny-invariant';
 import warning from 'tiny-warning';
 import pdfjs from 'pdfjs-dist';
-import ReactDomServer from 'react-dom/server';
 
 import PageContext from '../PageContext';
 
@@ -223,7 +222,7 @@ export default function TextLayer() {
               ...item,
             });
 
-            child.innerHTML = ReactDomServer.renderToStaticMarkup(content);
+            child.innerHTML = content;
             index += item.str && item.hasEOL ? 2 : 1;
           });
         }
